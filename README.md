@@ -1,6 +1,11 @@
+# Azure IoT Hub
 
-Azure CLI
- `az extension add --name azure-cli-iot-ext`
+A sample to demonstrate Azure IoT capabilities.
+
+## Required software
+
+* Azure CLI
+* Azure CLI IoT Extension `az extension add --name azure-cli-iot-ext`
 
 ## Add Device
 
