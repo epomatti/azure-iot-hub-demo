@@ -16,20 +16,17 @@ VS Code
 
 Azure CLI + IoT Extensions
 
-`az login`
-
-`az iot hub device-identity create --device-id teste-device-02 --hub-name happybeerhub`
+* `az login`
+* `az iot hub device-identity create --device-id teste-device-02 --hub-name happybeerhub`
 
 ## Sending Messages
 
 Device to Cloud message:
 
-`az iot device send-d2c-message -n happybeerhub -d test-device-02 --data 'Hello from Azure CLI'`
-
-`az iot hub monitor-events -n happybeerhub`
+1. `az iot device send-d2c-message -n happybeerhub -d test-device-02 --data 'Hello from Azure CLI'`
+2. `az iot hub monitor-events -n happybeerhub`
 
 Cloud to Device:
 
-`az iot device c2d-message send -n happybeerhub -d test-device-02 --data 'Hello, device, from Azure CLI'`
-
-`az iot device c2d-message receive -n happybeerhub -d test-device-02`
+1. `az iot device c2d-message send -n happybeerhub -d test-device-02 --data 'Hello, device, from Azure CLI'`
+2. `az iot device c2d-message receive -n happybeerhub -d test-device-02`
