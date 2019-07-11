@@ -23,10 +23,14 @@ Azure CLI + IoT Extensions
 
 Device to Cloud message:
 
-1. `az iot device send-d2c-message -n happybeerhub -d test-device-02 --data 'Hello from Azure CLI'`
-2. `az iot hub monitor-events -n happybeerhub`
+```
+az iot device send-d2c-message -n happybeerhub -d test-device-02 --data 'Hello from Azure CLI'
+az iot hub monitor-events -n happybeerhub
+```
 
 Cloud to Device:
 
-1. `az iot device c2d-message send -n happybeerhub -d test-device-02 --data 'Hello, device, from Azure CLI'`
-2. `az iot device c2d-message receive -n happybeerhub -d test-device-02`
+```
+az iot device c2d-message send -n happybeerhub -d test-device-02 --data 'Hello, device, from Azure CLI'
+az iot device c2d-message receive -n happybeerhub -d test-device-02
+```
