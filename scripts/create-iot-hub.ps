@@ -9,5 +9,3 @@ az group create -n $group
 # Create IoT Hub with free SKU (cannot to be upgraded to Basic or Standard)
 az iot hub create -n "happybeerhub" -g "happybeer" --sku F1
 
-# Install the Azure Cli
-az extension add --name azure-cli-iot-ext
