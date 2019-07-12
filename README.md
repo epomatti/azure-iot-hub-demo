@@ -9,7 +9,7 @@ A sample to demonstrate Azure IoT capabilities.
 
 ## Create Device
 
-* `az iot hub device-identity create --device-id teste-device-02 --hub-name happybeerhub`
+`az iot hub device-identity create --device-id teste-device-02 --hub-name happybeerhub`
 
 ## Sending Messages
 
