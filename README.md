@@ -35,3 +35,7 @@ az iot device simulate -n happybeerhub -d test-device-01 `
 --data "Message from simulated device!" `
 --msg-count 5
 ```
+
+## Security
+
+https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#hardware-security-module
