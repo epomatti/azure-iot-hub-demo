@@ -7,21 +7,8 @@ A sample to demonstrate Azure IoT capabilities.
 * Azure CLI
 * Azure CLI IoT Extension (`az extension add --name azure-cli-iot-ext`)
 
-## Add Device
+## Create Device
 
-VS Code
-
-1. Open command pallete <kbd>Ctrl</kbd>+<kbd>Shirt</kbd>+<kbd>P</kbd>
-2. Access `Azure IoT Hub: Show Welcome Page`
-3. Select IoT Hub
-4. Select Subscription
-5. Select the Hub
-6. Expand `Azure IoT Hub Devices` sidebar
-7. Choose `Create Device` on menu and add device
-
-Azure CLI + IoT Extensions
-
-* `az login`
 * `az iot hub device-identity create --device-id teste-device-02 --hub-name happybeerhub`
 
 ## Sending Messages
