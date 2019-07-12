@@ -59,3 +59,8 @@ After generating the private key and the certificate, add an individual enrollme
 ## Security
 
 https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#hardware-security-module
+
+## References
+
+https://docs.microsoft.com/en-us/azure/iot-dps/quick-enroll-device-x509-csharp
+https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-dotnet
