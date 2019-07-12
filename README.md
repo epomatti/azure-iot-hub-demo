@@ -41,7 +41,7 @@ az iot device simulate -n happybeerhub -d test-device-01 `
 
 ## Enrollment
 
-You'll need the device connection ID:
+You'll need the device Connection String:
 
 `az iot hub device-identity show-connection-string --hub-name happybeerhub-us --device-id test-device-01 --output table`
 
