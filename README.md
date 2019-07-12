@@ -2,7 +2,7 @@
 
 A sample to demonstrate Azure IoT capabilities.
 
-## Required software
+## Tools
 
 * Azure CLI
 * Azure CLI IoT Extension (`az extension add --name azure-cli-iot-ext`)
