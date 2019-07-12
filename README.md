@@ -41,6 +41,10 @@ az iot device simulate -n happybeerhub -d test-device-01 `
 
 ## Enrollment
 
+You'll need the device connection ID:
+
+`az iot hub device-identity show-connection-string --hub-name happybeerhub-us --device-id test-device-01 --output table`
+
 Clone and run this to create certificates:
 
 https://github.com/MattHoneycutt/ps-create-iot-solutions/tree/master/device-provisioning-sample
