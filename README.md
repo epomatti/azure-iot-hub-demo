@@ -39,6 +39,11 @@ az iot device simulate -n happybeerhub -d test-device-01 `
 --msg-count 5
 ```
 
+## Enrollment
+
+Clone and run this to create certificates
+https://github.com/MattHoneycutt/ps-create-iot-solutions/tree/master/device-provisioning-sample
+
 ## Security
 
 https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#hardware-security-module
