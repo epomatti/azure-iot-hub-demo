@@ -44,5 +44,7 @@ Simulate Device:
 
 ```
 az iot hub monitor-events -n happybeerhub
-az iot device simulate -n happybeerhub -d test-device-01 --data "Message from simulated device!" --msg-count 5
+az iot device simulate -n happybeerhub -d test-device-01 `
+--data "Message from simulated device!" `
+--msg-count 5
 ```
