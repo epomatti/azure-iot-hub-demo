@@ -12,7 +12,7 @@ A sample to demonstrate Azure IoT capabilities.
 1. IoT Hub using `scripts/iot-hub.ps` script.
 2. Device Provisioning Service: `az iot dps create -n happybeerdps -g happybeer -l eastus`
 2. Add Linked IoT Hubs using the portal.
-3. Device: `az iot hub device-identity create --device-id teste-device-01 --hub-name happybeerhub`
+3. Device: `az iot hub device-identity create --device-id test-device-01 --hub-name happybeerhub`
 
 ## Sending Messages
 
@@ -41,8 +41,16 @@ az iot device simulate -n happybeerhub -d test-device-01 `
 
 ## Enrollment
 
-Clone and run this to create certificates
+Clone and run this to create certificates:
+
 https://github.com/MattHoneycutt/ps-create-iot-solutions/tree/master/device-provisioning-sample
+
+After generating the private key and the certificate, add an individual enrollment using the Portal.
+
+## Connect the Device
+
+1. Go to the DPS and copy the **ID Scope** value.
+2. Run the app again with the ID Scope value: `dotnet run <id_scope>`
 
 ## Security
 
