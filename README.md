@@ -9,11 +9,9 @@ A sample to demonstrate Azure IoT capabilities.
 
 ## Create Services
 
-Create the IoT Hub using `scripts/iot-hub.ps` script.
-
-Create the Device Provisioning Service (DPS) using the portal.
-
-Create the device: `az iot hub device-identity create --device-id teste-device-01 --hub-name happybeerhub`
+1. IoT Hub using `scripts/iot-hub.ps` script.
+2. Device Provisioning Service (DPS) using the portal.
+3. Device: `az iot hub device-identity create --device-id teste-device-01 --hub-name happybeerhub`
 
 ## Sending Messages
 
