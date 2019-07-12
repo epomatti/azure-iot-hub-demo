@@ -5,7 +5,7 @@ A sample to demonstrate Azure IoT capabilities.
 ## Required software
 
 * Azure CLI
-* Azure CLI IoT Extension `az extension add --name azure-cli-iot-ext`
+* Azure CLI IoT Extension (`az extension add --name azure-cli-iot-ext`)
 
 ## Add Device
 
@@ -26,16 +26,23 @@ Azure CLI + IoT Extensions
 
 ## Sending Messages
 
-Device to Cloud message:
+Device to Cloud (D2C):
 
 ```
-az iot device send-d2c-message -n happybeerhub -d test-device-02 --data 'Hello from Azure CLI'
 az iot hub monitor-events -n happybeerhub
+az iot device send-d2c-message -n happybeerhub -d test-device-02 --data 'Hello from Azure CLI'
 ```
 
-Cloud to Device:
+Cloud to Device (C2D):
 
 ```
 az iot device c2d-message send -n happybeerhub -d test-device-02 --data 'Hello, device, from Azure CLI'
 az iot device c2d-message receive -n happybeerhub -d test-device-02
+```
+
+Simulate Device:
+
+```
+az iot hub monitor-events -n happybeerhub
+az iot device simulate -n happybeerhub -d test-device-01 --data "Message from simulated device!" --msg-count 5
 ```
