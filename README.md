@@ -43,7 +43,12 @@ az iot device simulate -n happybeerhub -d test-device-01 `
 
 You'll need the device Connection String:
 
-`az iot hub device-identity show-connection-string --hub-name happybeerhub-us --device-id test-device-01 --output table`
+```
+az iot hub device-identity show-connection-string `
+--hub-name happybeerhub-us
+--device-id test-device-01
+--output table`
+```
 
 Clone and run this to create certificates:
 
