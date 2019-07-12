@@ -63,4 +63,5 @@ https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#hardware-securi
 ## References
 
 https://docs.microsoft.com/en-us/azure/iot-dps/quick-enroll-device-x509-csharp
+
 https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-dotnet
