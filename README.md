@@ -12,8 +12,6 @@ You'll need to following software to run this demo:
 
 ## Provisioning the Infrastructure
 
-**1. Create the IoT Hub:**
-
 ```powershell
 # Login and setup your location variable
 az login -u <username>
@@ -25,27 +23,15 @@ az group create -n $group
 
 # Create IoT Hub with free SKU (It cannot to be upgraded to Basic or Standard)
 az iot hub create -n "iotdemohub" -g $group --sku F1
-```
 
-**2. Create the Device Provisioning Service (DPS):**
-
-```powershell
+# Create the Device Provisioning Service (DPS)
 az iot dps create -n iotdemodps -g $group
-```
-
-**3. Link the Hub to the DPS:**
-
-```powershell
-# Get the connection string
-$hubConnectionString=az iot hub show-connection-string -n iotdemohub -o tsv
 
 #Link the hub to the provisioning service
+$hubConnectionString=az iot hub show-connection-string -n iotdemohub -o tsv
 az iot dps linked-hub create -g $group --dps-name iotdemodps --connection-string $hubConnectionString
-```
-   
-**4. Create a device:**
 
-```powershell
+# Create a device:
 az iot hub device-identity create --device-id test-device-01 --hub-name iotdemohub
 ```
 
