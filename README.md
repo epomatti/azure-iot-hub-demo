@@ -70,6 +70,8 @@ az iot dps enrollment create -g iotdemo --dps-name $iotdemodps999 `
 
 ## Security
 
+Seucurity concerns for IoT provisioning:
+
 https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#hardware-security-module
 
 ## References
@@ -78,7 +80,7 @@ https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#hardware-securi
 
 [Managing DPS with CLI](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-manage-dps-with-cli)
 
-[]
+[Simulated device with CE](https://docs.microsoft.com/en-us/azure/iot-dps/quick-create-simulated-device-x509-csharp)
 
 [X.509 Enrollment](https://docs.microsoft.com/en-us/azure/iot-dps/quick-enroll-device-x509-csharp)
 
