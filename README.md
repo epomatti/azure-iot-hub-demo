@@ -68,6 +68,11 @@ az iot dps enrollment create -g iotdemo --dps-name $iotdemodps999 `
 5. Get the DPS ID Scope: `az iot dps show -n iotdemodps999 --query "properties.idScope" -o tsv`
 6. Send a message: `dotnet run <idScope>`
 
+## Stream Analytics
+
+1. Create a Stream Analytics Job using the Portal
+
+
 ## Security
 
 Security concerns for IoT provisioning:
