@@ -6,7 +6,6 @@ Azure IoT features demo.
 
 You'll need to following software to run this demo:
 
-* Visual Studio 2019
 * Azure CLI
 * Azure CLI IoT Extension (`az extension add --name azure-cli-iot-ext`)
 
@@ -54,26 +53,18 @@ az iot device simulate -n iotdemohub999 -d test-device-01 `
 --msg-count 5
 ```
 
-## Enrollment
+## Manual Enrollment
 
-You'll need the device Connection String:
-
+1. Get the sample: `git clone https://github.com/MattHoneycutt/ps-create-iot-solutions`
+2. cd into `ps-create-iot-solutions/device-provisioning-sample`
+3. Create the certificates: `dotnet run setup`
+4. Enroll the device:
 ```powershell
-az iot hub device-identity show-connection-string `
---hub-name happybeerhub-us
---device-id test-device-01
---output table`
+az iot dps enrollment create -g $group --dps-name $dpsName `
+--enrollment-id $enrollmentId --attestation-type x509 --certificate-path $certificatePath
 ```
-
-Clone and run this to create certificates:
-
-
-After generating the private key and the certificate, add an individual enrollment using the Portal.
-
-## Connect the Device
-
-1. Go to the DPS and copy the **ID Scope** value.
-2. Run the app again with the ID Scope value: `dotnet run <id_scope>`
+5. Get the DPS ID Scope: `az iot dps show -n iotdemodps999 --query "properties.idScope" -o tsv`
+6. Send a message: `dotnet run <idScope>`
 
 ## Security
 
@@ -90,3 +81,5 @@ https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#hardware-securi
 [Send Telemetry](https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-dotnet)
 
 [IoT client provisioning sample](https://github.com/MattHoneycutt/ps-create-iot-solutions/tree/master/device-provisioning-sample)
+
+[IoT C# Samples](https://github.com/MattHoneycutt/ps-create-iot-solutions)
