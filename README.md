@@ -4,11 +4,17 @@ Azure IoT features demo.
 
 ## Tools
 
+You'll need to following software to run this demo:
+
 * Visual Studio 2019
 * Azure CLI
 * Azure CLI IoT Extension (`az extension add --name azure-cli-iot-ext`)
 
-## Create Services
+## Provisioning the Infrastructure
+
+First create the IoT Hub:
+
+
 
 1. IoT Hub using `scripts/iot-hub.ps` script.
 2. Device Provisioning Service: `az iot dps create -n happybeerdps -g happybeer -l eastus`
