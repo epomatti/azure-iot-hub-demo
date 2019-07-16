@@ -14,7 +14,7 @@ You'll need to following software to run this demo:
 
 1. Create the IoT Hub:
 
-```
+```powershell
 # Login and setup your location variable
 az login -u <username>
 az configure --defaults location=eastus
@@ -29,13 +29,13 @@ az iot hub create -n "iotdemohub" -g $group --sku F1
 
 2. Create the Device Provisioning Service (DPS):
 
-```
+```powershell
 az iot dps create -n iotdemodps -g $group
 ```
 
 3. Link the Hub to the DPS:
 
-```
+```powershell
 # Get the connection string
 $hubConnectionString=az iot hub show-connection-string -n iotdemohub -o tsv
 
@@ -45,7 +45,7 @@ az iot dps linked-hub create -g $group --dps-name iotdemodps --connection-string
    
 4. Create a device:
 
-```
+```powershell
 az iot hub device-identity create --device-id test-device-01 --hub-name iotdemohub
 ```
 
@@ -71,7 +71,7 @@ az iot device simulate -n iotdemohub999 -d test-device-01 `
 
 You'll need the device Connection String:
 
-```
+```powershell
 az iot hub device-identity show-connection-string `
 --hub-name happybeerhub-us
 --device-id test-device-01
