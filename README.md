@@ -55,13 +55,15 @@ az iot device simulate -n iotdemohub999 -d test-device-01 `
 
 ## Manual Enrollment
 
-1. Get the sample: `git clone https://github.com/MattHoneycutt/ps-create-iot-solutions`
-2. cd into `ps-create-iot-solutions/device-provisioning-sample`
-3. Create the certificates: `dotnet run setup`
-4. Enroll the device:
+*These steps are shortened from [this Microsoft article](https://docs.microsoft.com/en-us/azure/iot-dps/quick-create-simulated-device-x509-csharp).*
+
+1. `git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git`
+2. `cd .\azure-iot-samples-csharp\provisioning\Samples\device\X509Sample`
+3. Create the certificates: `powershell .\GenerateTestCertificate.ps1`
+4. Configure individual enrollment:
 ```powershell
-az iot dps enrollment create -g $group --dps-name $dpsName `
---enrollment-id $enrollmentId --attestation-type x509 --certificate-path $certificatePath
+az iot dps enrollment create -g iotdemo --dps-name $iotdemodps999 `
+--enrollment-id iothubx509device1 --attestation-type x509 --certificate-path certificate.cer
 ```
 5. Get the DPS ID Scope: `az iot dps show -n iotdemodps999 --query "properties.idScope" -o tsv`
 6. Send a message: `dotnet run <idScope>`
@@ -75,6 +77,8 @@ https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#hardware-securi
 [Pluralsight Creating IoT Solutions](https://app.pluralsight.com/library/courses/microsoft-azure-iot-solutions-creating/table-of-contents)
 
 [Managing DPS with CLI](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-manage-dps-with-cli)
+
+[]
 
 [X.509 Enrollment](https://docs.microsoft.com/en-us/azure/iot-dps/quick-enroll-device-x509-csharp)
 
