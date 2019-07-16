@@ -4,6 +4,7 @@ A sample to demonstrate Azure IoT capabilities.
 
 ## Tools
 
+* Visual Studio 2019
 * Azure CLI
 * Azure CLI IoT Extension (`az extension add --name azure-cli-iot-ext`)
 
