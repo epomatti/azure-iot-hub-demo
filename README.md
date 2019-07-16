@@ -12,10 +12,10 @@ You'll need to following software to run this demo:
 
 ## Provisioning the Infrastructure
 
-1. First create the IoT Hub:
+1. Create the IoT Hub:
 
 ```powershell
-# Login and setup your default location
+# Login and setup your location variable
 az login -u <username>
 az configure --defaults location=eastus
 
@@ -23,18 +23,23 @@ az configure --defaults location=eastus
 $group="iotdemo"
 az group create -n $group
 
-# Create IoT Hub with free SKU (cannot to be upgraded to Basic or Standard)
-az iot hub create -n "iotdemohub999" -g $group --sku F1
+# Create IoT Hub with free SKU (It cannot to be upgraded to Basic or Standard)
+az iot hub create -n "iotdemohub" -g $group --sku F1
 ```
 
-2. Device Provisioning Service:
+2. Create the Device Provisioning Service (DPS): `az iot dps create -n iotdemodps -g $group`
+
+3. Link the Hub to the DPS:
 
 ```powershell
-az iot dps create -n happybeerdps -g $group
-```
+# Get the connection string
+$hubConnectionString=az iot hub show-connection-string -n iotdemohub -o tsv
 
-3. Add Linked IoT Hubs using the portal.
-4. Device: `az iot hub device-identity create --device-id test-device-01 --hub-name happybeerhub`
+#Link the hub to the provisioning service
+az iot dps linked-hub create -g $group --dps-name iotdemodps --connection-string $hubConnectionString
+```
+   
+4. Device: `az iot hub device-identity create --device-id test-device-01 --hub-name iotdemohub`
 
 ## Sending Messages
 
@@ -89,6 +94,8 @@ https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#hardware-securi
 
 ## References
 
-https://docs.microsoft.com/en-us/azure/iot-dps/quick-enroll-device-x509-csharp
+[Managing DPS with CLI](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-manage-dps-with-cli)
 
-https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-dotnet
+[X.509 Enrollment](https://docs.microsoft.com/en-us/azure/iot-dps/quick-enroll-device-x509-csharp)
+
+[Send Telemetry](https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-dotnet)
