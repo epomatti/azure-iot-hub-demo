@@ -70,7 +70,7 @@ az iot dps enrollment create -g iotdemo --dps-name $iotdemodps999 `
 
 ## Security
 
-Seucurity concerns for IoT provisioning:
+Security concerns for IoT provisioning:
 
 https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#hardware-security-module
 
