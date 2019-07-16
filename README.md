@@ -12,11 +12,21 @@ You'll need to following software to run this demo:
 
 ## Provisioning the Infrastructure
 
-First create the IoT Hub:
+1. First create the IoT Hub:
 
+```
+# Login and setup your default location
+az login -u <username>
+az configure --defaults location=brazilsouth
 
+# Group creation
+$group="happybeer"
+az group create -n $group
 
-1. IoT Hub using `scripts/iot-hub.ps` script.
+# Create IoT Hub with free SKU (cannot to be upgraded to Basic or Standard)
+az iot hub create -n "happybeerhub" -g "happybeer" --sku F1
+```
+
 2. Device Provisioning Service: `az iot dps create -n happybeerdps -g happybeer -l eastus`
 2. Add Linked IoT Hubs using the portal.
 3. Device: `az iot hub device-identity create --device-id test-device-01 --hub-name happybeerhub`
