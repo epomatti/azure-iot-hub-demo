@@ -48,6 +48,7 @@ az iot device c2d-message receive -n iotdemohub999 -d test-device-01
 
 # simulate device
 az iot hub monitor-events -n iotdemohub999
+
 az iot device simulate -n iotdemohub999 -d test-device-01 `
 --data "Message from simulated device!" `
 --msg-count 5
@@ -66,7 +67,6 @@ az iot hub device-identity show-connection-string `
 
 Clone and run this to create certificates:
 
-https://github.com/MattHoneycutt/ps-create-iot-solutions/tree/master/device-provisioning-sample
 
 After generating the private key and the certificate, add an individual enrollment using the Portal.
 
@@ -81,8 +81,12 @@ https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#hardware-securi
 
 ## References
 
+[Pluralsight Creating IoT Solutions](https://app.pluralsight.com/library/courses/microsoft-azure-iot-solutions-creating/table-of-contents)
+
 [Managing DPS with CLI](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-manage-dps-with-cli)
 
 [X.509 Enrollment](https://docs.microsoft.com/en-us/azure/iot-dps/quick-enroll-device-x509-csharp)
 
 [Send Telemetry](https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-dotnet)
+
+[IoT client provisioning sample](https://github.com/MattHoneycutt/ps-create-iot-solutions/tree/master/device-provisioning-sample)
