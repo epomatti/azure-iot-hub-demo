@@ -30,7 +30,7 @@ az iot hub create -n "iotdemohub" -g $group --sku F1
 2. Create the Device Provisioning Service (DPS):
 
 ```
-az iot dps create -n iotdemodps -g $group`
+az iot dps create -n iotdemodps -g $group
 ```
 
 3. Link the Hub to the DPS:
@@ -51,23 +51,16 @@ az iot hub device-identity create --device-id test-device-01 --hub-name iotdemoh
 
 ## Sending Messages
 
-Device to Cloud (D2C):
-
-```
+```powershell
+# D2C
 az iot hub monitor-events -n iotdemohub999
 az iot device send-d2c-message -n iotdemohub999 -d test-device-01 --data 'Hello from Azure CLI'
-```
 
-Cloud to Device (C2D):
-
-```
+# C2D
 az iot device c2d-message send -n iotdemohub999 -d test-device-01 --data 'Hello, device, from Azure CLI'
 az iot device c2d-message receive -n iotdemohub999 -d test-device-01
-```
 
-Simulate Device:
-
-```
+# simulate device
 az iot hub monitor-events -n iotdemohub999
 az iot device simulate -n iotdemohub999 -d test-device-01 `
 --data "Message from simulated device!" `
