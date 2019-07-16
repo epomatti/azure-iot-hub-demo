@@ -14,7 +14,7 @@ You'll need to following software to run this demo:
 
 1. Create the IoT Hub:
 
-```powershell
+```
 # Login and setup your location variable
 az login -u <username>
 az configure --defaults location=eastus
@@ -27,11 +27,15 @@ az group create -n $group
 az iot hub create -n "iotdemohub" -g $group --sku F1
 ```
 
-2. Create the Device Provisioning Service (DPS): `az iot dps create -n iotdemodps -g $group`
+2. Create the Device Provisioning Service (DPS):
+
+```
+az iot dps create -n iotdemodps -g $group`
+```
 
 3. Link the Hub to the DPS:
 
-```powershell
+```
 # Get the connection string
 $hubConnectionString=az iot hub show-connection-string -n iotdemohub -o tsv
 
@@ -39,29 +43,33 @@ $hubConnectionString=az iot hub show-connection-string -n iotdemohub -o tsv
 az iot dps linked-hub create -g $group --dps-name iotdemodps --connection-string $hubConnectionString
 ```
    
-4. Device: `az iot hub device-identity create --device-id test-device-01 --hub-name iotdemohub`
+4. Create a device:
+
+```
+az iot hub device-identity create --device-id test-device-01 --hub-name iotdemohub
+```
 
 ## Sending Messages
 
 Device to Cloud (D2C):
 
 ```
-az iot hub monitor-events -n happybeerhub
-az iot device send-d2c-message -n happybeerhub -d test-device-01 --data 'Hello from Azure CLI'
+az iot hub monitor-events -n iotdemohub999
+az iot device send-d2c-message -n iotdemohub999 -d test-device-01 --data 'Hello from Azure CLI'
 ```
 
 Cloud to Device (C2D):
 
 ```
-az iot device c2d-message send -n happybeerhub -d test-device-01 --data 'Hello, device, from Azure CLI'
-az iot device c2d-message receive -n happybeerhub -d test-device-01
+az iot device c2d-message send -n iotdemohub999 -d test-device-01 --data 'Hello, device, from Azure CLI'
+az iot device c2d-message receive -n iotdemohub999 -d test-device-01
 ```
 
 Simulate Device:
 
 ```
-az iot hub monitor-events -n happybeerhub
-az iot device simulate -n happybeerhub -d test-device-01 `
+az iot hub monitor-events -n iotdemohub999
+az iot device simulate -n iotdemohub999 -d test-device-01 `
 --data "Message from simulated device!" `
 --msg-count 5
 ```
