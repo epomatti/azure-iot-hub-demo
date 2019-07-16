@@ -86,7 +86,7 @@ az iot hub device-identity show-connection-string `
 7. Open the Query in the Stream Analytics, go to Input and select the IoT Hub `sample data from input`
 9. Insert this query and click <kbd>Save</kbd>:
 
-```
+```sql
 SELECT
 	DeviceId=datapoints.iothub.connectionDeviceId,
 	SensorName,
