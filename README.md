@@ -1,6 +1,6 @@
-# Azure IoT Hub
+# Azure IoT Hub Demo
 
-A sample to demonstrate Azure IoT capabilities.
+Azure IoT features demo.
 
 ## Tools
 
