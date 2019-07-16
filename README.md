@@ -14,22 +14,27 @@ You'll need to following software to run this demo:
 
 1. First create the IoT Hub:
 
-```
+```powershell
 # Login and setup your default location
 az login -u <username>
-az configure --defaults location=brazilsouth
+az configure --defaults location=eastus
 
 # Group creation
-$group="happybeer"
+$group="iotdemo"
 az group create -n $group
 
 # Create IoT Hub with free SKU (cannot to be upgraded to Basic or Standard)
-az iot hub create -n "happybeerhub" -g "happybeer" --sku F1
+az iot hub create -n "iotdemohub999" -g $group --sku F1
 ```
 
-2. Device Provisioning Service: `az iot dps create -n happybeerdps -g happybeer -l eastus`
-2. Add Linked IoT Hubs using the portal.
-3. Device: `az iot hub device-identity create --device-id test-device-01 --hub-name happybeerhub`
+2. Device Provisioning Service:
+
+```powershell
+az iot dps create -n happybeerdps -g $group
+```
+
+3. Add Linked IoT Hubs using the portal.
+4. Device: `az iot hub device-identity create --device-id test-device-01 --hub-name happybeerhub`
 
 ## Sending Messages
 
