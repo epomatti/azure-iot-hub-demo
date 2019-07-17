@@ -36,6 +36,8 @@ az iot hub device-identity create --device-id test-device-01 --hub-name iotdemoh
 
 ## Sending Messages
 
+Send messages between Cloud and Device for testing.
+
 ```powershell
 # D2C
 az iot hub monitor-events -n iotdemohub999
@@ -55,7 +57,7 @@ az iot device simulate -n iotdemohub999 -d test-device-01 `
 
 ## Manual Enrollment
 
-*These steps are shortened from [this Microsoft article](https://docs.microsoft.com/en-us/azure/iot-dps/quick-create-simulated-device-x509-csharp).*
+*These steps are taken from [this Microsoft article](https://docs.microsoft.com/en-us/azure/iot-dps/quick-create-simulated-device-x509-csharp).*
 
 1. `git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git`
 2. `cd .\azure-iot-samples-csharp\provisioning\Samples\device\X509Sample`
@@ -69,6 +71,8 @@ az iot dps enrollment create -g iotdemo --dps-name $iotdemodps999 `
 6. Send a message: `dotnet run <idScope>`
 
 ## Stream Analytics
+
+This is where the data received from the devices are selected to be processed in a service of your choice, such as functions, queues and events.
 
 1. Create a Stream Analytics Job using the Portal
 2. Add IoT Hub as an input to the job
@@ -111,6 +115,8 @@ GROUP BY
 13. Start the job.
 
 ## Configure IoT Hub Message Routing
+
+Do it when you want to have more than one processing strategy for the data, such as raw archive.
 
 1. Add a **Custom Endpoint** named `rawdata` to the "Messge routing" option in the IoT Hub of type Blob Storage
 2. Add a **Route** to the IoT Hub referencing the custom endpoint
