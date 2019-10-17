@@ -70,6 +70,17 @@ az iot dps enrollment create -g iotdemo --dps-name $iotdemodps999 `
 5. Get the DPS ID Scope: `az iot dps show -n iotdemodps999 --query "properties.idScope" -o tsv`
 6. Send a message: `dotnet run <idScope>`
 
+### OpenSSL Certificate
+
+You may choose to generate the certificate with OpenSSL.
+
+```
+openssl genrsa -out private.key 2048
+openssl req -new -x509 -key private.key -out publickey.cer -days 90
+```
+
+You may optionally add `-subj '/CN=<full domain name>/emailAddress=<email>/C=<country code>/ST=<state name>/L=<city>/O=<organization>/OU=<department>'` but it might require an upgrade of OpenSSL to the latest version due to `-subj` not working properly on all scenarios. Another alternative is to use `openssl.conf` file with `-config` parameter.
+
 ## Stream Analytics
 
 This is where the data received from the devices are selected to be processed in a service of your choice, such as functions, queues and events.
